@@ -31,7 +31,7 @@ const OS: 'linux' | 'macos' | 'windows' = (() => {
 
 // The current platform's architecture. Throws if the architecture is not
 // supported by Dart Sass Embedded.
-const ARCH: 'ia32' | 'x64' | 'arm64' = (() => {
+const ARCH: 'ia32' | 'x64' | 'arm' | 'arm64' = (() => {
   const arch = process.env.npm_config_arch || process.arch;
   switch (arch) {
     case 'ia32':
@@ -40,6 +40,8 @@ const ARCH: 'ia32' | 'x64' | 'arm64' = (() => {
       return 'ia32';
     case 'x64':
       return 'x64';
+    case 'arm':
+      return 'arm';
     case 'arm64':
       return 'arm64';
     default:
